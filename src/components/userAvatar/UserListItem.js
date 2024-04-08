@@ -3,9 +3,6 @@ import { Box, Text } from "@chakra-ui/layout";
 import { ChatState } from "../../context/ChatProvider";
 
 const UserListItem = ({user, handleFunction }) => {
-  // console.log('user:in listusetr ', user);
-  // const { user } = ChatState();
-
   return (
     <Box
       onClick={handleFunction}

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import Axios from '../axiosInstance/AxiosIndex'
 import { useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-function Login () {
+function Login() {
   const toast = useToast();
-const navigate=useNavigate()
+  const navigate = useNavigate()
   const [data, setData] = useState({
     email: '',
     password: ''
@@ -20,7 +20,7 @@ const navigate=useNavigate()
     password: false
   })
 
-  function handleChange (e) {
+  function handleChange(e) {
     const { name, value } = e.target
 
     setTouched({ ...touched, [name]: true })
@@ -64,11 +64,10 @@ const navigate=useNavigate()
   function handleSubmit(e) {
     e.preventDefault();
     // console.log(data, 'data');
-    
+
     try {
       Axios.post('/login', data)
         .then(res => {
-          console.log('res==of ==login: ', res.data.user);
           localStorage.setItem('userInfo', JSON.stringify(res.data.user));
           toast({
             title: 'Logged In Successfully.',
@@ -82,7 +81,7 @@ const navigate=useNavigate()
         .catch(error => {
           console.error('Error occurred while making the POST request:', error.response.data.message);
           console.error(error.response.status);
-          if(error.response.status){
+          if (error.response.status) {
             toast({
               title: 'Validation Error',
               description: error.response.data.message || 'Invalid password.',
@@ -100,32 +99,31 @@ const navigate=useNavigate()
               isClosable: true,
             });
           }
-          
+
         });
     } catch (error) {
       console.error('Error occurred during the POST request:', error);
       toast({
         title: 'Error',
         description:
-        error.message || 'Something went wrong. Please try again later.',
+          error.message || 'Something went wrong. Please try again later.',
         status: 'error',
         duration: 500,
         isClosable: true,
       });
     }
   }
-  
+
 
   return (
-    <div className='container mt-5 bg-light p-4' style={{width:'500px'}}>
+    <div className='container mt-5 bg-light p-4' style={{ width: '500px' }}>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
           <label htmlFor='email'>Email:</label>
           <input
             type='email'
-            className={`form-control ${
-              touched.email && errors.email.trim() ? 'is-invalid' : ''
-            }`}
+            className={`form-control ${touched.email && errors.email.trim() ? 'is-invalid' : ''
+              }`}
             id='email'
             placeholder='Enter email'
             name='email'
@@ -140,9 +138,8 @@ const navigate=useNavigate()
           <label htmlFor='password'>Password:</label>
           <input
             type='password'
-            className={`form-control ${
-              touched.password && errors.password.trim() ? 'is-invalid' : ''
-            }`}
+            className={`form-control ${touched.password && errors.password.trim() ? 'is-invalid' : ''
+              }`}
             id='password'
             placeholder='Enter password'
             name='password'

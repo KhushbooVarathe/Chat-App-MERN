@@ -131,18 +131,18 @@ function Signup() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(data, 'data');
+    // console.log(data, 'data');
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('email', data.email);
     formData.append('password', data.password);
     formData.append('number', data.number);
     formData.append('image', data.image);
-    console.log('formData: ', formData);
+    // console.log('formData: ', formData);
 
     Axios.post('/register', formData)
       .then((res) => {
-        console.log('res: ', res.data);
+        // console.log('res: ', res.data);
         toast({
           title: 'Account created.',
           description: `${res.data.message}`,

@@ -5,7 +5,6 @@ import '../components/style.css'
 import { IconButton, Spinner, useToast } from "@chakra-ui/react";
 import { getSender, getSenderFull } from "../config/ChatLogics";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import ProfileModal from "./miscellaneous/ProfileModal";
 import ScrollableChat from "./ScrollableChat";
@@ -15,7 +14,7 @@ import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../context/ChatProvider";
 import Axios from "../axiosInstance/AxiosIndex";
-const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -89,8 +88,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             chatId: selectedChat,
           },
           config
-          );
-          // console.log('data: ', data);
+        );
+        // console.log('data: ', data);
         socket.emit("new message", data);
         setMessages([...messages, data]);
       } catch (error) {
@@ -123,7 +122,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     // eslint-disable-next-line
   }, [selectedChat]);
 
- 
+
   useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
       if (
@@ -217,7 +216,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 h={20}
                 alignSelf="center"
                 ml='50%'
-                // margin="auto"
+              // margin="auto"
               />
             ) : (
               <div className="messages">

@@ -9,7 +9,7 @@
 // if (userInfo) {
 //   // Extract and parse the data
 //   const userInfoObject = JSON.parse(userInfo);
-  
+
 //   // Access the properties of userInfoObject as needed
 //   console.log("data from localstorage",userInfoObject.token);
 //   config = {
@@ -21,11 +21,11 @@
 //   console.log('userinfo does not exist in localStorage');
 // }
 
-  
+
 //   useEffect(() => {
 //     fetchData();
 //   }, []);
-  
+
 //   const fetchData = async () => {
 //     try {
 //       const response = await Axios.get('/getalluser',config); // Ensure this matches your backend route
@@ -48,7 +48,7 @@ import SideDrawer from "./miscellaneous/SideBarModal";
 import { ChatState } from "../context/ChatProvider";
 
 const Chat = () => {
-  
+
   const [fetchAgain, setFetchAgain] = useState(false);
   const { user } = ChatState();
 
@@ -62,7 +62,7 @@ const Chat = () => {
         )}
       </Box>
     </div>
-    // <>chat</>
+
   );
 };
 

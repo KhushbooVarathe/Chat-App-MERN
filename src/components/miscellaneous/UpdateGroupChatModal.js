@@ -31,16 +31,13 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     const [loading, setLoading] = useState(false);
     const [renameloading, setRenameLoading] = useState(false);
     const toast = useToast();
-
     const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
     // console.log('chats:in updateeeeeee ', chats);
-
     const handleSearch = async (query) => {
         setSearch(query);
         if (!query) {
             return;
         }
-
         try {
             setLoading(true);
             const config = {
@@ -49,7 +46,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await Axios.get(`/getalluser?search=${search}`, config);
-            console.log(data);
+            // console.log(data);
             setLoading(false);
             setSearchResult(data);
         } catch (error) {

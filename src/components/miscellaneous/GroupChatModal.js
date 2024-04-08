@@ -31,7 +31,7 @@ const GroupChatModal = ({ children }) => {
     const toast = useToast();
 
     const { user, chats, setChats } = ChatState();
-   const AdminUser= JSON.parse(localStorage.getItem("userInfo"))
+    const AdminUser = JSON.parse(localStorage.getItem("userInfo"))
     const handleGroup = (userToAdd) => {
         if (selectedUsers.includes(userToAdd)) {
             toast({
@@ -90,7 +90,6 @@ const GroupChatModal = ({ children }) => {
             });
             return;
         }
-
         try {
             const config = {
                 headers: {
@@ -105,7 +104,6 @@ const GroupChatModal = ({ children }) => {
                 },
                 config
             );
-            console.log('data: ', data);
             setChats([data, ...chats]);
             setSearchResult([])
             setSelectedUsers([])
@@ -128,11 +126,10 @@ const GroupChatModal = ({ children }) => {
             });
         }
     };
-    const closeAllFun=()=>{
+    const closeAllFun = () => {
         setSearchResult([])
         setSelectedUsers([])
     }
-
     return (
         <>
             <span onClick={onOpen}>{children}</span>
@@ -148,7 +145,7 @@ const GroupChatModal = ({ children }) => {
                     >
                         Create Group Chat
                     </ModalHeader>
-                    <ModalCloseButton onClick={closeAllFun}/>
+                    <ModalCloseButton onClick={closeAllFun} />
                     <ModalBody d="flex" flexDir="column" alignItems="center">
                         <FormControl>
                             <Input

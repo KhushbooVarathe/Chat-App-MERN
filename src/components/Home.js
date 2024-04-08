@@ -9,19 +9,8 @@ import {
   Text
 } from '@chakra-ui/react'
 import Login from './Login'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router'
 import Signup from './Signup'
-function Home () {
-  const navigate = useNavigate()
-
-  // let user = JSON.parse(localStorage.getItem('userInfo'))
-  // console.log('user:in home ', user);
-  // useEffect(() => {
-
-  //   // if (user) navigate('/chats')
-  // }, [user])
-
+function Home() {
   return (
     <Container maxW='xl' centerContent>
       <Box
